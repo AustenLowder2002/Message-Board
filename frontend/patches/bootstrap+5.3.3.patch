@@ -1,0 +1,45 @@
+diff --git a/node_modules/bootstrap/scss/_modal.scss b/node_modules/bootstrap/scss/_modal.scss
+index 494db94..899186a 100644
+--- a/node_modules/bootstrap/scss/_modal.scss
++++ b/node_modules/bootstrap/scss/_modal.scss
+@@ -60,7 +60,7 @@
+   // When fading in the modal, animate it to slide down
+   .modal.fade & {
+     @include transition($modal-transition);
+-    transform: $modal-fade-transform;
++    & {transform: $modal-fade-transform;}
+   }
+   .modal.show & {
+     transform: $modal-show-transform;
+diff --git a/node_modules/bootstrap/scss/_reboot.scss b/node_modules/bootstrap/scss/_reboot.scss
+index 1879175..8c7114c 100644
+--- a/node_modules/bootstrap/scss/_reboot.scss
++++ b/node_modules/bootstrap/scss/_reboot.scss
+@@ -500,8 +500,8 @@ legend {
+   padding: 0;
+   margin-bottom: $legend-margin-bottom;
+   @include font-size($legend-font-size);
+-  font-weight: $legend-font-weight;
+-  line-height: inherit;
++  & {font-weight: $legend-font-weight;
++  line-height: inherit;}
+ 
+   + * {
+     clear: left; // 2
+diff --git a/node_modules/bootstrap/scss/_type.scss b/node_modules/bootstrap/scss/_type.scss
+index 37d64bf..45a9796 100644
+--- a/node_modules/bootstrap/scss/_type.scss
++++ b/node_modules/bootstrap/scss/_type.scss
+@@ -35,10 +35,10 @@
+ @each $display, $font-size in $display-font-sizes {
+   .display-#{$display} {
+     @include font-size($font-size);
+-    font-family: $display-font-family;
++    & {font-family: $display-font-family;
+     font-style: $display-font-style;
+     font-weight: $display-font-weight;
+-    line-height: $display-line-height;
++    line-height: $display-line-height;}
+   }
+ }
+ 

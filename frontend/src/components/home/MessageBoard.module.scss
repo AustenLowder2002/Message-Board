@@ -1,0 +1,26 @@
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    .container {
+        width: 100%;
+        max-width: 800px;
+        height: 100%;
+        background-color: #f3f3f3;
+        border-radius: 16px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 2rem;
+        box-sizing: border-box;
+        overflow: auto;
+        .header {
+            text-align: center;
+        }
+        p {
+            overflow-wrap: break-word;
+            text-wrap: wrap;
+        }
+    }
+}
