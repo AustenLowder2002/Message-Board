@@ -9,4 +9,9 @@ datasource db {
 
 model Messages {
     id Int @id @default(autoincrement())
+    content String @db.Text
+    likes Int @default(0)
+    parentID Int? @map("parent_id")
+    parent Messages? @relation("MessageToReplies", fields: [parentID], references: [id])
+    replies Messages[] @relation("MessageToReplies")
 }
