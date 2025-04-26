@@ -1,9 +1,8 @@
-import React, { act, useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useState } from "react";
 import { MessageContext } from "../../context/message-context";
 import styles from "./MessageBoard.module.scss";
 import PopupComponent from "../Shared/PopupInput/PopupComponent";
-import Card from 'react-bootstrap/card';
-
+import {ThumbsUp, ChatCircleText, Eraser, Pencil} from '@phosphor-icons/react';
 function MessageBoard() {
     const { messages, likeMessage, removeMessage, addMessage } = useContext(MessageContext);
     const [sentMessage, setSentMessage] = useState();
@@ -41,25 +40,35 @@ function MessageBoard() {
         const isActiveID = activeId === message.id;
         const isCommentID = commentID === message.id;
         const replies = message?.replies;
+        const id = message?.userID;
         return (
             <div className={styles.container} key={index}>
                 <div className={styles.MessageContainer}>
-                <h3>Post: {message.id}</h3>
+                <h3>Anyomous-User {message.userID}</h3>
                     <div className={styles.mainMessage}>
                     <p>{message.content}</p>
                         <div className={styles.subMessages}>
-                            <p>
-                                {replies?.map((reply, index) => (
-                                    <p key={index}>{reply.content}</p>
+                            <div>
+                                {replies?.map(({ userID, content }, index) => (
+                                    <div key={index}>
+                                        <p><strong>Anyomous-User {userID}</strong></p>
+                                        <p>{content}</p>
+                                    </div>
                                 ))}
-                            </p>
+                            </div>
                         </div>
                         
                     </div>
                 </div>
+                <div>
+                    <p>This post has: {message.likes} likes.</p>
+                </div>
+                <div className={styles.lastEdit}>
+                    <p>Last edited by: Anyomous-User {message.lastEditedBy}</p>
+                </div>
                 <div className={styles.buttonContainer}>
                 <div className={styles.commentContainer}>
-                    <button onClick={() => handleCommentClick(message.id)}>Add a comment</button>
+                    <button onClick={() => handleCommentClick(message.id)}>Comment <ChatCircleText size={18} /></button>
                     {isCommentID && (
                         <PopupComponent
                             id={message.id}
@@ -68,7 +77,7 @@ function MessageBoard() {
                     )}
                 </div>
                 <div className={styles.editContainer}>
-                    <button onClick={() => handleButtonClick(message.id)}>edit</button>
+                    <button onClick={() => handleButtonClick(message.id)}>Edit <Pencil size={18} /></button>
                     {isActiveID && (
                         <PopupComponent
                             id={message.id}
@@ -77,12 +86,14 @@ function MessageBoard() {
                     )}
                 </div>
                 <div className={styles.removeContainer}>
-                    <button onClick={() => remove(message.id)}>Remove message</button>
+                    <button onClick={() => remove(message.id)}>Remove <Eraser size={18} /></button>
                 </div>
                 <div className={styles.likeContainer}>
-                <p>This post has: {message.likes} likes.</p>
-                    <button onClick={() => likeMessageUpdate(message.id)} disabled={isDisabled}>
-                        {isDisabled ? "Please wait..." : "Like"}
+                    <button 
+                        onClick={() => likeMessageUpdate(message.id)} 
+                        disabled={isDisabled}
+                        >
+                        {isDisabled ? "Please wait..." : "Like" } <ThumbsUp size={18} />
                     </button>
                 </div>
                 </div>

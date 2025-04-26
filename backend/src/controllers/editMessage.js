@@ -2,11 +2,13 @@ import messages from "../models/messages.js";
 import { io } from "../server.js";
 const editMessage = async (req, res) => {
     const id = parseInt(req.params["id"]);
+    const userID = parseInt(req.params["userID"]);
     try{
         await messages.update({
             where: {id: id},
             data: {
-                content: req.body.message
+                content: req.body.message,
+                lastEditedBy: userID,
             }
         })
         io.emit('updated_message');

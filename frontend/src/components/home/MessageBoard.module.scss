@@ -120,6 +120,11 @@
             }
         }
     }
+    .lastEdit{
+        align-items: flex-end;
+        display: flex;
+        justify-content: flex-end;
+    }
 
     .commentContainer,
     .editContainer,
@@ -136,6 +141,7 @@
 
         button {
             width: 100%;
+            font-size: 18px;
         }
     }
 

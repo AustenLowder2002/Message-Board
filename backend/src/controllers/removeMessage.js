@@ -3,10 +3,13 @@ import { io } from "../server.js";
 const removeMessage = async (req, res) => {
     try{
         const id = parseInt(req.params["id"]);
-        console.log(id);
+        const userID = parseInt(req.params["userID"]);
+
         await messages.update({
             where: {id: id},
-            data: {deleteDate: new Date()}
+            data: {deleteDate: new Date(),
+                removedBy: userID
+            }
         })
         io.emit('message_removed');
         return res.status(200).json('Message Deleted');

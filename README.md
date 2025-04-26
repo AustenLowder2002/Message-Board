@@ -4,7 +4,8 @@
     Go to the [Node.js](https://nodejs.org/en/download) website and install the newest version.
 
 # Installing MySQL workbench:
-    Go to the [MySQL workbench website](https://dev.mysql.com/downloads/installer/) and install MySQL workbench 8
+    Go to the [MySQL workbench website](https://dev.mysql.com/downloads/installer/) 
+    and install MySQL workbench 8
 
 # Install a text editor like VS code or an IDE:
     Go to [VsCode](https://code.visualstudio.com/download) and install.
@@ -38,8 +39,6 @@
     * If all steps were completed properly the server should be open.
     * If it does not work as expected or there is some issue, please submit an issue.
 
-
-
 # What was built in this project:
     * This project was built using Node.js and React.js On the frontend it is React + Vite. 
     * On the backend it is Node + Es Modules. 
@@ -55,6 +54,8 @@
     * To accomplish this goal it uses a mix of database writing, asynchronous calls, and websockets.
     * The reason for the choice in websockets was to decrease the amount of strain 
       on the server while still providing that peer-to-peer feel -- A.K.A live updates.
+    * In typical environment you would seperate pages into routes. With this project being so small
+      I found it unnecessary to do.
     
     
 

@@ -1,11 +1,14 @@
 import messages from "../models/messages.js";
 import { io } from "../server.js";
 const addMessage = async (req, res) => {
+    const userID = parseInt(req.params["userID"]);
+
     try{
         const newMessage = await messages.create({
             data: {
                 content: req.body.message,
                 createDate: new Date(),
+                userID: userID
             }
         })
         io.emit('new_message', newMessage);

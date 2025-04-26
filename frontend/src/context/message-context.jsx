@@ -8,7 +8,8 @@ import React, {
 } from "react";
 
 const socket = io('http://localhost:3000');
-
+sessionStorage.setItem("userID", Math.floor(Math.random() * 1000000));
+const userID = sessionStorage.getItem("userID");
 export const MessageContext = createContext();
 
 export function MessageConextProvider({ children }) {
@@ -64,7 +65,7 @@ export function MessageConextProvider({ children }) {
 
     const commentOnPost = async(id, content) => {
         try{
-            const response = await fetch("http://localhost:3000" + `/api/comment/${id}`, {
+            const response = await fetch("http://localhost:3000" + `/api/user/${userID}/comment/${id}`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",
@@ -80,7 +81,7 @@ export function MessageConextProvider({ children }) {
     }   
     const updateMessages = async (id, content) => {
         try{
-            const response = await fetch("http://localhost:3000" + `/api/edit/message/${id}`, {
+            const response = await fetch("http://localhost:3000" + `/api/user/${userID}/edit/message/${id}`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",
@@ -98,7 +99,7 @@ export function MessageConextProvider({ children }) {
     const addMessage = async (message) => {
 
         try{
-            const response = await fetch("http://localhost:3000" + `/api/add/message`, {
+            const response = await fetch("http://localhost:3000" + `/api/user/${userID}/add/message`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",
@@ -129,7 +130,7 @@ export function MessageConextProvider({ children }) {
     
     const removeMessage = async (id) => {
         try{
-            const response = await fetch("http://localhost:3000" + `/api/remove/message/${id}`, {
+            const response = await fetch("http://localhost:3000" + `/api/user/${userID}/remove/message/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-type": "application/json",

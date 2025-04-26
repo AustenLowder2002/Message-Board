@@ -19,15 +19,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.delete("/api/remove/message/:id", removeMessage);
 
-app.post("/api/comment/:id", addComment)
-app.post("/api/edit/message/:id", editMessage);
-app.post("/api/upadate/message/:id");
+app.delete("/api/user/:userID/remove/message/:id", removeMessage);
+app.post("/api/user/:userID/comment/:id", addComment)
+app.post("/api/user/:userID/edit/message/:id", editMessage);
 app.post("/api/like/message/:id", likesController);
-
 app.get("/api/messages", retrieveMessages);
-
-app.post('/api/add/message', addMessage);
+app.post('/api/user/:userID/add/message', addMessage);
 
 export default app;

@@ -1,6 +1,7 @@
 import messages from "../models/messages.js";
 import { io } from "../server.js";
 const addComment = async (req, res) => {
+    const userID = parseInt(req.params["userID"]);
     const id = parseInt(req.params["id"]);
 
     try{
@@ -9,6 +10,7 @@ const addComment = async (req, res) => {
                 content: req.body.message,
                 parentID: id,
                 createDate: new Date(),
+                userID: userID
             }
         })
         io.emit('new_reply', newMessage);

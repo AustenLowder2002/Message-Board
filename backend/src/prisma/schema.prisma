@@ -9,7 +9,10 @@ datasource db {
 
 model Messages {
     id Int @id @default(autoincrement())
+    userID Int? @map("user_id")
     content String @db.Text
+    removedBy Int? @map("removed_by")
+    lastEditedBy Int? @map("last_edited_by")
     likes Int @default(0)
     createDate DateTime? @map("create_date")
     deleteDate DateTime? @map("delete_date")
