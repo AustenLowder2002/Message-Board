@@ -111,7 +111,7 @@ function MessageBoard() {
                     {messages.map((message, index) => renderMessages(message, index))}
                 </div>
                 <div className={styles.buttonContainer}>
-                    <input type="text" placeholder="type here" onChange={(e) => setSentMessage(e.target.value)} /><button onClick={sendMessage}>submit</button>
+                    <input type="text" placeholder="type here" onChange={(e) => setSentMessage(e.target.value)} /><button onClick={sendMessage}>Submit</button>
                 </div>
             </div>
         </div>
