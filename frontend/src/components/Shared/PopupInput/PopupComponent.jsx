@@ -10,11 +10,14 @@ const PopupComponent = ({ id, onClose, comment }) => {
     };
 
     const handleClosePopup = () => {
-        if(!comment){
+        if (inputValue.trim() == "") {
+            window.alert("Please input a value before submitting.");
+        } else if (!comment) {
             editMessage(id, inputValue);
-        }else {
+        } else {
             addComment(id, inputValue);
         }
+
         setInputValue('');
 
         onClose();
