@@ -64,7 +64,7 @@ function MessageBoard() {
                     <p>This post has: {message.likes} likes.</p>
                 </div>
                 <div className={styles.lastEdit}>
-                    <p>Last edited by: Anyomous-User {message.lastEditedBy}</p>
+                    <p>Last edited by: Anyomous-User {message.lastEditedBy ? message.lastEditedBy : message.userID} </p>
                 </div>
                 <div className={styles.buttonContainer}>
                 <div className={styles.commentContainer}>
