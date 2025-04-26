@@ -21,11 +21,12 @@
     * Once you have created a username and password go to the .env file in the backend 
       and paste your username and password in the spots that say <yourUsername> & <yourPassword>
     * After you do that confirm that you are using the correct port and server for your MYSQL server. 
-        This is the localhost:3006 in the env. If you are using a different port or an IP instead of localhost 
+        This is the localhost:3006 in the env. 
+        If you are using a different port or an IP instead of localhost 
         ** REPLACE THEM WITH YOUR INFO **
 
 ## Step 3 Starting the project:
-** Confrim that ports 3000 && 8080 are free on your machine **
+    * ** Confrim that ports 3000 && 8080 are free on your machine **
     * When you are done confirming the details are correct in the .env file; 
       Open the backend and frontend in intergrated terminals. 
       You can do this by /cd ...<yourpath>/backend and .../<yourpath>/frontend
