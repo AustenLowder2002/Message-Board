@@ -1,5 +1,5 @@
 import messages from "../models/messages.js";
-
+import { io } from "../server.js";
 const removeMessage = async (req, res) => {
     try{
         const id = parseInt(req.params["id"]);
@@ -8,6 +8,7 @@ const removeMessage = async (req, res) => {
             where: {id: id},
             data: {deleteDate: new Date()}
         })
+        io.emit('message_removed');
         return res.status(200).json('Message Deleted');
     }catch(e) {
         console.log(e);

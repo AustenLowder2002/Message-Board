@@ -7,6 +7,8 @@ import removeMessage from "./controllers/removeMessage.js";
 import likesController from "./controllers/likesController.js";
 import retrieveMessages from "./controllers/retrieveMessages.js";
 import addMessage from "./controllers/addMessage.js";
+import editMessage from "./controllers/editMessage.js";
+import addComment from "./controllers/addComment.js";
 
 const app = express();
 
@@ -17,9 +19,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.post("/api/add/message", );
 app.delete("/api/remove/message/:id", removeMessage);
 
+app.post("/api/comment/:id", addComment)
+app.post("/api/edit/message/:id", editMessage);
 app.post("/api/upadate/message/:id");
 app.post("/api/like/message/:id", likesController);
 

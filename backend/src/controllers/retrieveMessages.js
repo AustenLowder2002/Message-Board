@@ -3,7 +3,8 @@ import messages from "../models/messages.js";
 const retrieveMessages = async (req,res) => {
     try{
         const totalMessages = await messages.findMany({
-            where: {deleteDate: {equals: null}}
+            where: {AND: [{deleteDate: {equals: null}, parentID: {equals: null}}]},
+            include: {replies: true}
         });
         return res.status(200).json(totalMessages);
 

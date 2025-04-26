@@ -39,20 +39,61 @@ export function MessageConextProvider({ children }) {
         socket.on('new_message', (newMessage) => {
             setMessages(prev => [...prev, newMessage]);
         });
+        socket.on('updated_message', () => {
+            fetchMessages();
+        })
         socket.on('new_like', (likes) => {
             setLikes(likes);
         });
+        socket.on('message_removed', () => {
+            fetchMessages();
+        })
+        socket.on('new_reply', () => {
+            fetchMessages();
+        })
 
         return () => {
             socket.off('new_message');
             socket.off('new_like');
+            socket.off('updated_message');
+            socket.off('message_removed');
+            socket.off('new_reply');
         }
 
     }, [likes]);
 
-    const updateMessages = useCallback((newMessages) => {
-        setMessages(newMessages);
-    }, []);
+    const commentOnPost = async(id, content) => {
+        try{
+            const response = await fetch("http://localhost:3000" + `/api/comment/${id}`, {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({message: content}),
+            });
+            if(!response.ok) {
+                throw new Error(`HTTP ERROR! Status: ${response.status}`);
+            }
+        } catch (error) {
+            console.error('Error commenting on message on message board', error);
+        }
+    }   
+    const updateMessages = async (id, content) => {
+        try{
+            const response = await fetch("http://localhost:3000" + `/api/edit/message/${id}`, {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify({message: content}),
+            });
+            if(!response.ok) {
+                throw new Error(`HTTP ERROR! Status: ${response.status}`);
+            }
+        } catch (error) {
+            console.error('Error editing message on message board', error);
+        }
+    }
 
     const addMessage = async (message) => {
 
@@ -106,6 +147,7 @@ export function MessageConextProvider({ children }) {
         () =>({
             messages,
             fetchMessages,
+            commentOnPost,
             removeMessage,
             likeMessage,
             addMessage,
