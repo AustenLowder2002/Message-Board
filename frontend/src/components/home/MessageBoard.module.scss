@@ -1,28 +1,147 @@
 .root {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 1rem;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: #f4f6f8;
     box-sizing: border-box;
+
     .container {
         width: 100%;
-        max-width: 800px;
-        height: 100%;
-        background-color: gray;
-        border-radius: 16px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        max-width: 900px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         padding: 2rem;
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        overflow-y: auto;
         box-sizing: border-box;
-        overflow: auto;
+
         .header {
             text-align: center;
+            margin-bottom: 2rem;
+
+            h1 {
+                font-size: 2rem;
+                color: #333;
+                margin: 0;
+            }
         }
+
+        .messages {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .buttonContainer {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+
+            input {
+                padding: 0.5rem 1rem;
+                border: 1px solid #ccc;
+                border-radius: 8px;
+                width: 300px;
+            }
+
+            button {
+                padding: 0.5rem 1.2rem;
+                background-color: #1976d2;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #115293;
+                }
+            }
+        }
+    }
+}
+
+.container {
+    .MessageContainer {
+        background-color: #f9f9f9;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        position: relative;
+
+        h3 {
+            margin: 0 0 0.5rem 0;
+            color: #555;
+        }
+
+        .mainMessage {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+                color: #333;
+                overflow-wrap: break-word;
+        }
+
+        .subMessages {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            margin-left: 30px;
+            border-left: 3px solid #ccc;
+
+            p {
+                font-size: 0.95rem;
+                color: #666;
+                margin-top: 0.5rem;
+            }
+        }
+    }
+
+    .buttonContainer {
+        margin-top: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+
+        button {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.9rem;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: #388e3c;
+            }
+        }
+    }
+
+    .commentContainer,
+    .editContainer,
+    .removeContainer,
+    .likeContainer {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
         p {
-            overflow-wrap: break-word;
-            text-wrap: wrap;
+            margin: 0.5rem 0;
         }
+
+        button {
+            width: 100%;
+        }
+    }
+
+    .likeContainer {
+        align-items: flex-end;
+        justify-content: flex-end;
     }
 }

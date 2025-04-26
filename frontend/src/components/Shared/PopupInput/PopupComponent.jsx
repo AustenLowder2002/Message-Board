@@ -21,13 +21,11 @@ const PopupComponent = ({ id, onClose, comment }) => {
     };
 
     const editMessage = async (id, text) => {
-        await updateMessages(id, text)
-        await fetchMessages();
+        await updateMessages(id, text);
     }
 
     const addComment = async (id, content) =>{
-        await commentOnPost(id, content)
-        await fetchMessages();
+        await commentOnPost(id, content);
     }
 
     return (
