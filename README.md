@@ -26,10 +26,10 @@
         ** REPLACE THEM WITH YOUR INFO **
 
 ## Step 3 Starting the project:
-    * ** Confrim that ports 3000 && 8080 are free on your machine **
+    * ** Confirm that ports 3000 && 8080 are free on your machine **
     * When you are done confirming the details are correct in the .env file; 
-      Open the backend and frontend in intergrated terminals. 
-      You can do this by /cd ...<yourpath>/backend and .../<yourpath>/frontend
+      Open the backend and frontend in integrated terminals. 
+      (You can do this by /cd ...<yourpath>/backend and .../<yourpath>/frontend)
     * When you have both those terminals opened you will first type npm install on both terminals.
     * Once that is finished you will type npm start in both terminals
     * Look at the frontend terminal and open the link that says http://localhost:8080
@@ -41,20 +41,20 @@
 
 
 # What was built in this project:
-    This project was built using Node.js and React.js On the frontend it is React + Vite. 
-    On the backend it is Node + Es Modules. 
-    It also uses prisma ORM for MYSQL Connections.
+    * This project was built using Node.js and React.js On the frontend it is React + Vite. 
+    * On the backend it is Node + Es Modules. 
+    * It also uses prisma ORM for MYSQL Connections.
 
 ## Design Frontend:
-    The frontend was designed to look semi-modern, simple yet effective. 
-    It has very clear feel to it, almost like a polished stone. 
-    The choice for this was beacuse it is simple and I am not that great at designing UI/UX.
+    * The frontend was designed to look semi-modern, simple yet effective. 
+       It has very clean feel to it, almost like a polished stone(my words). 
+    * The choice for this was because it is simple and I am not that great at designing UI/UX.
 
 ## Design Backend:
-    This website was designed to allow anyone to add/create/edit/remove/like messages. 
-    To accomplish this goal it uses a mix of database writing, asyncronus calls, and websockets.
-    The reason for the choice in websockets was to descrease the amount of strain 
-    on the server while still providing that peer-to-peer feel. A.K.A live updates.
+    * This website was designed to allow anyone to add/create/edit/remove/like messages. 
+    * To accomplish this goal it uses a mix of database writing, asynchronous calls, and websockets.
+    * The reason for the choice in websockets was to decrease the amount of strain 
+      on the server while still providing that peer-to-peer feel -- A.K.A live updates.
     
     
 
