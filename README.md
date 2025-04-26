@@ -20,7 +20,8 @@
 
 ## Step 2: Finishing MYSQL setup:
     * Once you have created a username and password go to the .env file in the backend 
-      and paste your username and password in the spots that say <yourUsername> & <yourPassword>
+      and paste your username and password in the spots that say <yourUsername> & <yourPassword>.
+    * Leave the schema name alone, it will auto create.
     * After you do that confirm that you are using the correct port and server for your MYSQL server. 
         This is the localhost:3006 in the env. 
         If you are using a different port or an IP instead of localhost 
