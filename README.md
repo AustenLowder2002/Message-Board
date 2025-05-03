@@ -1,5 +1,3 @@
-# ChipedinAssessment
-
 # Installing Node:
     Go to the [Node.js](https://nodejs.org/en/download) website and install the newest version.
 
@@ -48,7 +46,7 @@
 ## Design Frontend:
     * The frontend was designed to look semi-modern, simple yet effective. 
        It has very clean feel to it, almost like a polished stone(my words). 
-    * The choice for this was because it is simple and I am not that great at designing UI/UX.
+    * The choice for this was because it is simple.
 
 ## Design Backend:
     * This website was designed to allow anyone to add/create/edit/remove/like messages. 
